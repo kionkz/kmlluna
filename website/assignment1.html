@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Conversion</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<style>
+.mySlides {display: none}
+</style>
+
+<body>
+  <header>
+    <div class="menu-text">MENU</div>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li class="dropdown-btn">Contents
+          <div class="dropdown-container">
+            <a href="assignment1.html">Conversion</a>
+            <a href="assignment2.html">Income Tax Calculator</a>
+            <a href="assignment3.html">First N Natural Numbers</a>
+            <a href="assignment4.html">Simple Payroll</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+</header>
+
+
+<h1>Conversions</h1>
+<nav>
+<ul>
+  <li for="conversiontype">Select an option:</li> 
+  <select class="dropdown-btn" id="conversiontype">
+    <div class="dropdown-container">
+    <option value="tempf">Fahrenheit to Celsius</option>
+    <option value="tempc">Celsius to Fahrenheit</option>
+    <option value="meter">Meters to Feet</option>
+    <option value="feet">Feet to Meters</option>
+    </div>
+  </select>
+</ul>
+</nav>
+<br>
+<div class="cntr">
+<div class="container">
+<input required="" name="number" class="input" type="number" id="input">
+<label class="label" for="input">Input:</label>
+</div>
+</div>
+<br>
+<button class="button" onclick="convert()">Convert</button>
+
+<p id="result"></p> </h3>
+
+
+
+<script>
+function convert(){
+  var inpuT = document.getElementById('input').value;
+  var cT = document.getElementById('conversiontype').value;
+
+  var result;
+  if(cT === 'tempf'){
+    result = (inpuT - 32) * 5/9;
+  } else if (cT === 'tempc'){
+   result = (inpuT * 9/5) + 32;
+  }else if (cT === 'meter'){
+   result = inpuT * 3.28084;
+  }else if (cT === 'feet'){
+   result = inpuT / 3.28084;
+  }
+   
+  document.getElementById("result").innerHTML='The result is: ' + result.toFixed(0);  
+  
+ }
+</script>
+</body>
+</html>

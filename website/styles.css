@@ -1,0 +1,449 @@
+/*fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@900&display=swap');
+
+/*fonts*/
+
+/*==============HEADER=============*/
+
+html{   
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+header {
+  background: transparent;
+  color: black;
+  z-index: -1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+ 
+  .menu-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    margin-right: 40px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center; 
+    position: relative;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    display: inline-block; 
+    margin: 0 10px; 
+  }
+  
+  li a,
+  .dropdown-btn {
+    display: inline-block;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 14px; 
+    text-decoration: none;
+    font-size: 15px; 
+    background: transparent;
+  }
+  
+  li a:hover,
+  .dropdown-btn:hover {
+    font-weight: 900;
+    border: transparent;
+    border-radius: 0px; 
+    background-color: transparent;
+    color: #000000; 
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .dropdown-container {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.308)255, 255, 255, 0.467;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 14px; 
+    text-decoration: none;
+    font-size: 15px;
+  }
+  
+  .dropdown-container a {
+    color: rgba(0, 0, 0, 0.578);
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+  }
+  
+  li:hover .dropdown-container {
+    display: block;
+    position: absolute;
+    z-index: 1;
+  }
+  
+/*==============END OF HEADER=============*/
+/*============== INPUT ================ */
+.cntr {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+  color: black;
+}
+
+.container .label {
+  font-size: 15px;
+  padding-left: 10px;
+  position: absolute;
+  top: 13px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input {
+  width: 200px;
+  height: 45px;
+  border: none;
+  outline: none;
+  padding: 0px 7px;
+  border-radius: 6px;
+  color: #414141;
+  font-size: 15px;
+  text-align: right;
+  background-color: transparent;
+  box-shadow: 3px 3px 10px rgba(0,0,0,1),
+  -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input:focus {
+  border: 2px solid transparent;
+  color: #000000;
+  box-shadow: 3px 3px 10px rgba(0,0,0,1),
+  -1px -1px 6px rgba(255, 255, 255, 0.4),
+  inset 3px 3px 10px rgba(0,0,0,1),
+  inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.container .input:valid ~ .label,
+.container .input:focus ~ .label {
+  transition: 0.3s;
+  padding-left: 2px;
+  transform: translateY(-35px);
+}
+
+.container .input:valid,
+.container .input:focus {
+  box-shadow: 3px 3px 10px rgba(0,0,0,1),
+  -1px -1px 6px rgba(255, 255, 255, 0.4),
+  inset 3px 3px 10px rgba(0,0,0,1),
+  inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+/*====== INPUT======== */
+
+
+/*==============Body text=============\*/
+body {
+  background-image: url("Gradient screensaver.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  text-align: center;
+  padding: 0;
+  animation: fadeInUp 1s ease-in-out;
+  animation: moveBackground 6s linear alternate 2;
+}
+
+/*======= animations =======*/
+@keyframes moveBackground {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 10% 79%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/*======= end =========*/
+
+.content {
+    margin: 100px;
+    text-align: center;
+}
+
+.alignL{
+
+  text-align: left;
+  margin-left: 70px;
+  margin-top: 100px;
+}
+
+.alignM{
+  display: block;
+  text-align: center;
+
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 78px;
+    letter-spacing: 1px;
+    line-height: 78px;
+    font-weight: 900;
+    margin-bottom: 0;
+    text-align: left;
+    width: 50%;
+    color: #000000;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-align: left;
+    width: 50%;
+    color: #000000; 
+    animation: fadeInUp 1s ease-in-out;
+}
+
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0;
+  text-align: left;
+  width: 50%;
+  color: #000000; 
+  animation: fadeInUp 1s ease-in-out;
+}
+
+h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 550;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center center;
+  width: 100%;
+  color: #000000; 
+  animation: fadeInUp 1s ease-in-out;
+}
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 89px;
+  font-weight: 900;
+  margin-bottom: 0;
+  text-align: center;
+  width: 100%;
+  color: #000000; 
+  animation: fadeInUp 1s ease-in-out;
+}
+/*==============End of Body text=============\*/
+
+
+
+/*========== table design/assignment4 ============*/
+h6{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center left;
+  width: 100%;
+  color: #000000; 
+}
+
+.deleP{
+  position: fixed;
+}
+
+.deleEmp{
+  bottom: 0;
+  left: 0;
+  margin-bottom: 10px; 
+  width: 100%;
+  margin-left: 50px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.tableposition{
+  position: relative;
+  position: absolute;
+  bottom: 0; 
+  right: 0; 
+  width: 60%;
+  margin-right: 15px;
+}
+.target-element {
+  position: absolute;
+  top: 50;
+  right: 0;
+  width: 65%;
+  margin-right: 100px;
+}
+
+.to-input{
+  width: 40%;
+  left: 10;
+  text-align: left;
+  margin-top: 45px;
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+body, h1, h2, p, table{
+  margin:0;
+  padding: 0;
+}
+
+/* Style for the table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Style for the table header */
+.styled-table th {
+  background-color: transparent;
+  color: black;
+  padding: 12px;
+}
+
+/* Style for table cells */
+.styled-table td {
+  padding: 10px;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
+
+}
+
+/* Hover effect on table rows */
+.styled-table tbody tr:hover {
+  background-color: white;
+  color:black;
+}
+
+
+/*======== dialog box ========*/
+
+dialog{
+  background-color: black;
+  border-bottom: 10px;
+  border-top: 10px;
+  text-align: center;
+  align-items: center;
+  backdrop-filter: none;
+}
+h7{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 550;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center center;
+  width: 100%;
+  color: white; 
+  animation: fadeInUp 1s ease-in-out;
+}
+
+
+/*======= BUTTON ========*/
+/* inspired form gumroad website */
+.button {
+  --bg: #000;
+  --hover-bg: transparent;
+  --hover-text: #000;
+  color: #fff;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 550;
+
+}
+
+.button:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem,-0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.button:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+.button2 {
+  --bg: white;
+  --hover-bg: transparent;
+  --hover-text: white;
+  color: black;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.button2:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem,-0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.button2:active {
+  transform: translate(0);
+  box-shadow: none;
+}

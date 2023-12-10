@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nth Number</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<style>
+.mySlides {display: none}
+</style>
+<body>
+
+  <header>
+    <div class="menu-text">MENU</div>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li class="dropdown-btn">Contents
+          <div class="dropdown-container">
+            <a href="assignment1.html">Conversion</a>
+            <a href="assignment2.html">Income Tax Calculator</a>
+            <a href="assignment3.html">First N Natural Numbers</a>
+            <a href="assignment4.html">Simple Payroll</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+</header>
+
+    
+<h1>N Natural Numbers</h1>
+<h5>Get the factorial, sum, and average of N Natural Numbers.</h5>
+<br>
+<div class="cntr">
+<div class="container">
+    <input required="" class="input" name="number" id="nlimit" type="number"></input>
+    <label class="label" for="nlimit">Input a value for n:</label>
+</div>
+</div> <br>
+<button class="button" id="ShowNumbers">Calculate</button>
+<h3 id="ntitle"></h3>
+<p id="result3"></p>
+<p id="result2"></p>
+<p id="result1"></p>
+
+<p id="nnumbers"></p>
+<script>
+    document.getElementById("ShowNumbers").addEventListener("click", function () {
+        var nthNum = 1;
+        var base = document.getElementById("nlimit").value * 1;
+
+        let i = 1;
+        while (i <= base) {
+            nthNum *= i;
+            i++;
+        }
+
+        document.getElementById("result1").innerHTML = `The Factorial of ${base} is : ${nthNum}`;
+
+        var sum = 0;
+        let j = 1;
+        do {
+            sum += j;
+            j++;
+        } while (j <= base);
+        sum = sum.toFixed(0);
+        document.getElementById("result2").innerHTML = `The sum of all numbers from ${base} is : ${sum}`;
+
+        var average;
+        var total = 0;
+        for (let k = 1; k <= base; k++) {
+            total += k;
+        }
+
+        average = total / base;
+
+        average = average.toFixed(0);
+
+        document.getElementById("result3").innerHTML = `The average of ${base} is : ${average}`;
+    });
+</script>
+</body>
+</html>

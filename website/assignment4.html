@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Simple Payroll</title>
+</head>
+
+<link rel="stylesheet" href="styles.css">
+<style>
+.mySlides {display: none}
+</style>
+
+<header>
+   <div class="menu-text">MENU</div>
+   <nav>
+     <ul>
+       <li><a href="Index.html">Home</a></li>
+       <li class="dropdown-btn">Contents
+         <div class="dropdown-container">
+           <a href="assignment1.html">Conversion</a>
+           <a href="assignment2.html">Income Tax Calculator</a>
+           <a href="assignment3.html">First N Natural Numbers</a>
+           <a href="assignment4.html">Simple Payroll</a>
+         </div>
+       </li>
+     </ul>
+   </nav>
+</header>
+ 
+<body onload="in_employee()"></body>
+
+<h6>Simple Payroll</h6>
+
+<div class="target-element">
+<table class="styled-table">
+      <thead>
+         <tr>
+            <th>No.</th>
+            <th>Emloyee Name</th>
+            <th>Days Worked</th>
+            <th>Daily Rate</th>
+            <th>Gross Pay</th>
+            <th>Deduction Amount</th>
+            <th>Net Pay</th>
+         </tr>
+      </thead>
+      <tbody id="tabody"> </tbody>
+
+</table>
+</div>
+
+<div class="to-input">
+
+   <div class="container">
+   <input required="" type="text" name="text" id="employee" class="input" ></input>
+   <label class="label"for="employee">Employee Name:</label>
+   </div>
+   <br>
+   <div class="container">
+   <input required="" id="worked" class="input" type="number"></input>
+   <label class="label" for="worked">Days worked:</label>
+   </div>
+   <br>
+   <div class="container">
+   <input required="" id="daily" class="input" type="number" ></input>
+   <label class="label" for="daily">Daily rate:</label>
+   </div>
+   <br>
+   <div class="container">
+   <input required="" id="deduction" class="input" type="number"></input><br>
+   <label class="label" for="deduction">Daily deduction:</label>
+   </div>
+   <br>
+   <button class="button" onclick="addemployee()">Add Employee</button>
+   <br><br><br>
+</div>
+
+<div class="deleP">
+   <div class="deleEmp">
+   <div class="container">
+   <input required="" class="input" id="delemployee" type="number" ></input>
+   <label class="label" for="label">Delete Employee:</label></div> 
+   <br>
+   <button class="button" onclick="delEmp()">Delete Employee</button>
+   <button class="button" onclick="cleartable()">Clear Table</button> <!--btnclear-->
+   </div> 
+</div>
+
+<!-- dialog box-->
+
+<dialog id="dlgConfirmCancel">
+   <form method ="dialog">
+      <h7 id="dlgmsg"></h7><br>
+      <button class="button2" id="btnConfirm" value="confirm" >Confirm</button>
+      <button class="button2" id="btnCancel" value="cancel" >Cancel</button>
+   </form>
+</dialog>
+
+<!-- End dialog box-->
+
+<script>
+
+   var EmployeeArray = [];
+
+   function in_employee(){
+      document.getElementById("tabody").innerHTML = "";
+   }
+
+   function addemployee() {
+
+      let emp = {
+         Employee: document.getElementById("employee").value,
+         Daysworked: parseFloat(document.getElementById("worked").value).toFixed(0),
+         Dailyrate: parseFloat(document.getElementById("daily").value).toFixed(2),
+         Deductionamount: parseFloat(document.getElementById("deduction").value).toFixed(2),
+
+         Grosspay: function(){
+            return (this.Daysworked * this.Dailyrate).toFixed(2);
+         },
+         Netpay: function(){
+            return (this.Grosspay() - this.Deductionamount).toFixed(2);
+         }
+
+      };
+
+      EmployeeArray.push(emp);
+      showTable();
+   }
+
+   function delEmp(){
+        let emnum = document.getElementById("delemployee").value;
+
+        document.getElementById("dlgmsg").innerText = "Are you sure you want to delete employee No."+emnum+"?";
+        let dialog = document.getElementById("dlgConfirmCancel");
+        dialog.showModal();
+
+        document.getElementById("btnConfirm").onclick = function(){
+        let emnum = document.getElementById("delemployee").value;
+        EmployeeArray.splice(emnum -1, 1);
+        showTable();  
+        dialog.close();
+        };
+
+        document.getElementById("btnCancel").onclick = function(){
+          dialog.close();
+        }
+    }
+
+    function cleartable(){
+      document.getElementById("dlgmsg").innerText = "Clear the table?";
+      let dialog = document.getElementById("dlgConfirmCancel");
+        dialog.showModal();
+
+        document.getElementById("btnConfirm").onclick = function() {
+            
+            in_employee();
+            dialog.close();
+        };  
+
+        document.getElementById("btnCancel").onclick = function() {
+            dialog.close();
+        };
+    }
+
+   function showTable(){
+      let tbody = "";
+      for(let i = 0; i < EmployeeArray.length; i++){
+         let ln = i + 1;
+         tbody += "<tr>"
+            + '<td>' + ln + '</td>'
+            + '<td>' + EmployeeArray[i].Employee + '</td>'
+            + '<td>' + EmployeeArray[i].Daysworked + '</td>'
+            + '<td>' + EmployeeArray[i].Dailyrate + '</td>'
+            + '<td>' + EmployeeArray[i].Grosspay() + '</td>'
+            + '<td>' + EmployeeArray[i].Deductionamount + '</td>'
+            + '<td>' + EmployeeArray[i].Netpay() + '</td>';
+      }
+      document.getElementById("tabody").innerHTML = tbody;
+   
+   }  
+
+</script>
+</body>
+</html>

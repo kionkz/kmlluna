@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Income Tax Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  .mySlides {display: none}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="menu-text">MENU</div>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li class="dropdown-btn">Contents
+          <div class="dropdown-container">
+            <a href="assignment1.html">Conversion</a>
+            <a href="assignment2.html">Income Tax Calculator</a>
+            <a href="assignment3.html">First N Natural Numbers</a>
+            <a href="assignment4.html">Simple Payroll</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+</header>
+
+  <h1>Income tax Calculator</h1>
+  <br/>
+  
+  <div class = "cntr">
+    <div class="container">
+    <input required="" class="input" name="number" id="taxable" type="number"> 
+    <label class="label" for="taxable">Enter Taxable Income:</label>
+    </div>
+  </div>
+  
+  <br/>
+  <button class="button" onclick="computeTax()">Compute</button>
+  <br>
+  <br>
+
+  <p id="IncomeTax"></p> 
+
+  <script>
+    function computeTax() {
+      var tax = document.getElementById('taxable').value;
+      var IncomeTax;
+      if (tax < 250000){
+        IncomeTax = tax * 0.00;
+      } else if (tax > 250000 && tax < 400000) {
+        IncomeTax = (tax - 250000) * 0.20;
+      } else if (tax > 400000 && tax < 800000) {
+        IncomeTax = (tax - 400000) * 0.25 + 30000;
+      } else if (tax > 800000 && tax < 2000000) {
+        IncomeTax = (tax - 800000) * 0.30 + 130000;
+      } else if (tax > 2000000 && tax < 8000000) {
+        IncomeTax = (tax - 2000000) * 0.32 + 490000;
+      } else if (tax > 8000000){
+        IncomeTax = (tax - 8000000) * 0.35 + 2410000;
+      }
+      document.getElementById("IncomeTax").innerHTML = 'Your Income Tax is: ' + IncomeTax.toFixed(2);
+    }
+  </script>
+</body>
+</html>
+
